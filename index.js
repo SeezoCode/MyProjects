@@ -41,8 +41,13 @@ function logicWrapper () {
 
 function addLinks() {
     if (localStorage[0] !== JSON.stringify(links)) {
-        console.log('no match')
-        let storageItems = JSON.parse(localStorage[0])
+        // console.log('no match')
+        try {
+            let storageItems = JSON.parse(localStorage[0]) || ''
+        }
+        catch (e) {
+            storageItems = {}
+        }
         for (let link of links) {
             if (!findCommonElementObject(link, storageItems)) { // new entry
                 createLink(div, link, 'new')
@@ -51,7 +56,7 @@ function addLinks() {
             }
         }
     } else {
-        console.log('matches')
+        // console.log('matches')
         for (let link of links) {
             createLink(div, link)
         }
