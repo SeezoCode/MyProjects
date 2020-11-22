@@ -28,12 +28,17 @@ let links = [{
         // link: 'https://github.com/SeezoCode/RGB-to-Hex',
         link: 'https://seezocode.github.io/RGB-to-Hex'
     },
+    {
+        text: 'My Projects - GitHub',
+        link: 'https://github.com/SeezoCode/MyProjects'
+    }
 ]
 
 logicWrapper()
 function logicWrapper () {
     addLinks()
     setTimeout(() => localStorage[0] = JSON.stringify(links), 5000)
+
 }
 
 
@@ -41,22 +46,23 @@ function logicWrapper () {
 
 function addLinks() {
     if (localStorage[0] !== JSON.stringify(links)) {
-        // console.log('no match')
+        console.log('no match')
+        let storageItems
         try {
-            let storageItems = JSON.parse(localStorage[0]) || ''
+            storageItems = JSON.parse(localStorage[0])
         }
-        catch (e) {
+        catch (err) {
             storageItems = {}
         }
         for (let link of links) {
             if (!findCommonElementObject(link, storageItems)) { // new entry
                 createLink(div, link, 'new')
             } else {
-                createLink(div, link, link.link)
+                createLink(div, link)
             }
         }
     } else {
-        // console.log('matches')
+        console.log('matches')
         for (let link of links) {
             createLink(div, link)
         }
