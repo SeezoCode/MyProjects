@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siiiiimp</title>
+</head>
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div id="simp">
+        <img src="simp-src.png"></div>
+</body>
+
+<script>
+    let shitSimppThingsToShow = [
+        "Simp?", "Did he really do that?", "Totally outta nowhere", "Stonks or St0KYS, doesn't matter", "Stokys ale pozor, je to NULA!", "But what does it all mean?", "Is he a simp?", "Could he also be subscribed to Poki?", "Hmm", "LMAO", "That's funny", "Lets examine the facts", "Haha, he spent his own money", "Everybody loves Pokimane but why?", "Whilst I used my mommy's credit card", "It's probably because her name sounds like Pokemon", "Would you ever guess that?", "It sucks that she has BF", "Did he even purchased Belle Dolphine's video for adults?", "What race even is she? Like asian or slightly brown?", "\"Humanitarianism is the expression of stupidity and cowardice\"", "\"He alone, who owns the youth, gains the future\"", "Oh holy Science, forgive his sins!", "But could he even?", "I think not!", "We all know his love is your local gamer girl \"LadyFelan\""
+    ]
+    let i = 0
+
+    function addText() {
+        console.log(shitSimppThingsToShow[i])
+        let div = document.getElementById('simp')
+        let h = document.createElement("p");
+        let t = document.createTextNode("");
+        let k = i
+        let lenght = shitSimppThingsToShow[i].length
+        let lastUsedStuff = 0
+        i += 1;
+        setInterval(() => {
+            if (h.innerHTML.length < lenght) h.innerHTML += shitSimppThingsToShow[k][lastUsedStuff++]
+        }, 3000 / lenght)
+        h.appendChild(t);
+
+        if (i % 2 == 0) document.getElementById('simp').appendChild(h);
+        else document.getElementById('simp').prepend(h);
+    }
+
+    function timeout() {
+        if (i < shitSimppThingsToShow.length) setTimeout(() => {
+            addText();
+            timeout()
+            }, 3000);
+    }
+    timeout();
+
+</script>
+</html>
