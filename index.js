@@ -31,6 +31,10 @@ let links = [{
     {
         text: 'My Projects - GitHub',
         link: 'https://github.com/SeezoCode/MyProjects'
+    },
+        {
+        text: 'Don\'t look',
+        link: 'DontLook/HahaMadeYouLook/index.html'
     }
 ]
 
